@@ -11,7 +11,7 @@ Workflow for Setting Up a Full Project:
 
 Initial Setup:
 - pnpm install: Install dependencies.
-- pnpm migrate dev: Create the initial migration and apply it.
+- pnpm migrate-dev: Create the initial migration and apply it.
 - pnpm db-seed: seed the database with initial data.
 - pnpm generate: generate the prisma client.
 Development:
