@@ -17,7 +17,7 @@ const IndexPage: NextPageWithLayout = () => {
   }
 
   return (
-    <div className="flex flex-col max-w-[430px] px-4">
+    <div className="flex flex-col max-w-[430px] px-4 pb-[65px]">
       <div className="flex flex-col pt-8 items-start gap-y-4">
         <div className="flex flex-col"></div>
         <SearchBar onChange={onSearchChange}></SearchBar>
