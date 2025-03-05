@@ -42,7 +42,7 @@ export default function RestaurantCard({ restaurant }: RestaurantCardProps) {
 
   return (
     <div className="w-full rounded-lg overflow-hidden ">
-      <div className="relative bg-gray-200 rounded-md">
+      <div className="relative bg-gray-200 rounded-2xl">
         {/* <img
           src={restaurant.images[0]}
           alt={restaurant.name}
@@ -57,7 +57,7 @@ export default function RestaurantCard({ restaurant }: RestaurantCardProps) {
           width={358}
           height={200}
           alt={restaurant.name}
-          className="w-full h-48 object-cover"
+          className="w-full h-48 object-cover rounded-2xl"
           onError={handleImageError}
         />
         <button
