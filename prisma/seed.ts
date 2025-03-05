@@ -1,25 +1,33 @@
-/**
- * Adds seed data to your db
- *
- * @see https://www.prisma.io/docs/guides/database/seed-database
- */
 import { PrismaClient } from '@prisma/client';
+import * as fs from 'fs';
+import * as path from 'path';
 
 const prisma = new PrismaClient();
 
 async function main() {
-  const firstPostId = '5c03994c-fc16-47e0-bd02-d218a370a078';
-  await prisma.post.upsert({
-    where: {
-      id: firstPostId,
-    },
-    create: {
-      id: firstPostId,
-      title: 'First Post',
-      text: 'This is an example post generated from `prisma/seed.ts`',
-    },
-    update: {},
-  });
+  try {
+    // Read restaurants data from JSON file
+    const jsonPath = path.join(__dirname, "./restaurants.json");
+    const restaurantsData = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
+
+    console.log(`Found ${restaurantsData.length} restaurants in the JSON file`);
+
+    // Clear existing data
+    await prisma.restaurant.deleteMany({});
+    console.log('Cleared existing restaurant data');
+
+    // Insert restaurant data
+    const restaurants = await prisma.restaurant.createMany({
+      data: restaurantsData,
+    });
+
+    console.log(`Seeded ${restaurants.count} restaurants to the database`);
+  } catch (error) {
+    console.error('Error seeding database:', error);
+    process.exit(1);
+  } finally {
+    await prisma.$disconnect();
+  }
 }
 
 main()

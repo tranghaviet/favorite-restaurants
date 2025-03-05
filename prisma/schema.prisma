@@ -10,14 +10,18 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model Post {
-  id    String @id @default(uuid())
-  title String
-  text  String
-
-  // To return `Date`s intact through the API we use transformers
-  // https://trpc.io/docs/v11/data-transformers
-  // This is unique so it can be used for cursor-based pagination
-  createdAt DateTime @default(now())
-  updatedAt DateTime @default(now()) @updatedAt
+model Restaurant {
+  id           String   @id @default(uuid())
+  name         String
+  desc         String
+  rating       Float
+  rating_count Int
+  category     String
+  city         String
+  price_range  String
+  images       String[]
+  featured     Json
+  isFavorite   Boolean  @default(false)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
 }

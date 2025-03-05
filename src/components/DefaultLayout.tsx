@@ -7,7 +7,8 @@ export const DefaultLayout = ({ children }: DefaultLayoutProps) => {
   return (
     <>
       <Head>
-        <title>Prisma Starter</title>
+        <title>Favorite Restaurants</title>
+        <meta name="description" content="A simple app to view and favorite restaurants" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

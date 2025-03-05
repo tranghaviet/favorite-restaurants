@@ -21,4 +21,7 @@ export default {
   typescript: {
     ignoreBuildErrors: true,
   },
+  images: {
+    domains: ['images.unsplash.com'],
+  },
 } satisfies NextConfig;
