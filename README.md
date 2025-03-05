@@ -7,16 +7,25 @@
 
 2.  **Project Setup:**
 
-    *   Install the dependencies: `pnpm install`.
+Workflow for Setting Up a Full Project:
 
-3.  **Prisma Setup and Run the server:**
+Initial Setup:
+- pnpm install: Install dependencies.
+- pnpm migrate dev: Create the initial migration and apply it.
+- pnpm db-seed: seed the database with initial data.
+- pnpm generate: generate the prisma client.
+Development:
+- pnpm dev: Start the development server with database migrations and seeding.
+- pnpm prisma-studio: To view and edit the database.
+Make changes to your schema.prisma file.
+- pnpm migrate dev: Create and apply new migrations.
+Modify your seed script (prisma/seed.js or prisma/seed.ts) and run `pnpm db-seed`to update seed data.
+Production Deployment:
+- pnpm build: Build the application.
+- pnpm migrate deploy: Apply migrations to your production database.
+- pnpm start: Start the production server.
 
-    *   Run `pnpm prisma migrate dev` to create the database tables based on the `prisma/schema.prisma` file. If you make changes to the schema, run this command again to apply them.
-    *   Run `pnpm run prisma:seed` to seed database sample data
-    *   Run `pnpm prisma studio` to view the database in a visual editor.
-    *   Run the server using the command `pnpm run dev`. The server listens on port 3000, as indicated by the `console.log` statement.
-
-4.  **tRPC API Endpoints:**
+3.  **tRPC API Endpoints:**
 
     *   The backend exposes the following tRPC endpoints:
 
